@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="crud.css">
+    <title>introduction to javascript</title>
+</head>
+<body>
+    <h1>Introduction to javaScript</h1>
+    <h2> Exercise 1</h2>
+    <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="fullName" /></label>
+        </div>
+        <div>
+            <label for="dob">DOB:</label>
+            <input type="date" name="DOB" id="dob" />
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" id="Male" value="Male" />Male
+            <input type="radio" name="gender" id="Female" value="Female" />Female
+        </div>
+        <div id="skill1"><label for="skill">Skill:</label>
+            <select name="Skill" id="skill" multiple>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="javaScript">JAVASCRIPT</option>
+                <option value="JAVA">JAVA</option>
+                <option value="PYTHON">PYTHON</option>
+                <option value="C/C++">C/C++</option>
+            </select>
+        </div>
+        <div id="hobbies">
+            <label for="hobbies">Hobbies:</label>
+            <input type="checkbox" name="hobbies" id="Cricket" value="Cricket" />Cricket
+            <input type="checkbox" name="hobbies" id="Tennis" value="Tennis" />Tennis
+        </div>
+        <div>
+            <input type="submit" value="Add/Update" id="submit" />
+        </div>
+    </form>
+    <div>
+        <table id="dataList" class="list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Skill</th>
+                    <th>Hobbies</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="crud.js"></script>
+</body>
+</html>
