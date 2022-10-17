@@ -12,20 +12,20 @@ function readFormData() {
     formData["fullName"] = document.getElementById("fullName").value;
     const userDateinput = document.getElementById("dob").value;
 
-    const userdate = userDateinput;
+  //  const userdate = userDateinput;
 
     // convert user input value int`o date object
-    const birthDate = new Date(userDateinput);
+    let birthDate = new Date(userDateinput);
     console.log(" birthDate" + birthDate);
 
     // get difference from current date;
-    const difference = Date.now() - birthDate.getTime();
+    let difference = Date.now() - birthDate.getTime();
 
-    const ageDate = new Date(difference);
+    let ageDate = new Date(difference);
     const calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
 
     formData["dob"] = calculatedAge;
-    formData["dob1"] = userdate;
+    formData["dob1"] = userDateinput;
     formData["gender"] = document.forms[0].elements["gender"].value;
     let hobbieSelected = document.forms[0].elements["hobbies"];
     console.log(hobbieSelected[0].value);
@@ -82,12 +82,12 @@ function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
     document.getElementById("fullName").value = selectedRow.cells[0].innerHTML;
 
-    let fullDOB = document.getElementsByTagName("td")[1].getAttribute("data-fulldob");
+   // let fullDOB = document.getElementsByTagName("td")[1].getAttribute("data-fulldob");
 
-    //fullDOB = selectedRow.cells[1].getAttribute("data-fulldob");
+    const fullDOB = selectedRow.cells[1].getAttribute("data-fulldob");
 
     //here  //
-    document.forms[0].elements["DOB"].value = fullDOB;
+    document.forms[0].elements["dob"].value = fullDOB;
     console.log(fullDOB);
     document.forms[0].elements["gender"].value = selectedRow.cells[2].innerHTML;
     const hobbSelected = selectedRow.cells[4].innerHTML;
@@ -123,6 +123,7 @@ function updateRecord(formData) {
     selectedRow.cells[2].innerHTML = formData.gender;
     selectedRow.cells[3].innerHTML = formData.skill;
     selectedRow.cells[4].innerHTML = formData.hobbies;
+    selectedRow = 1;
 }
 function onDelete(td) {
     row = td.parentElement.parentElement;
